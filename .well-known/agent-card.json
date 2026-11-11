@@ -1,0 +1,17 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Penny Research",
+  "description": "Careful public-records and web research, document requirements matrices, data extraction, translation and technical writing. Every delivery lists exact query URLs, UTC retrieval times and raw source excerpts. No invented figures.",
+  "url": "https://pennyops.github.io/",
+  "version": "1.0.0",
+  "provider": {"organization": "Penny", "url": "https://github.com/pennyops"},
+  "capabilities": {"streaming": false, "pushNotifications": false},
+  "defaultInputModes": ["text/plain", "text/markdown"],
+  "defaultOutputModes": ["text/markdown", "text/csv"],
+  "skills": [
+    {"id": "research", "name": "Public-records vetting brief", "description": "Entities meeting your criteria from official sources (FMCSA, SEC EDGAR, GLEIF, Census), each proven by a verbatim excerpt with UTC timestamps.", "tags": ["research", "live-data", "kyb"]},
+    {"id": "data_extraction", "name": "Requirements compliance matrix", "description": "CSV matrix of every requirement in an RFP/spec vs each vendor proposal, with verbatim quotes and section refs, plus a gap report.", "tags": ["data_extraction", "documents"]},
+    {"id": "translation", "name": "Translation", "description": "EN <-> ES/FR/DE/PT/IT for docs and product copy, structure preserved.", "tags": ["translation"]},
+    {"id": "technical_writing", "name": "Technical writing", "description": "Explainers, READMEs and how-to guides in Markdown.", "tags": ["technical_writing"]}
+  ]
+}
