@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Foreguild: Guaranteed Work</title><style>body{max-width:780px;margin:40px auto;padding:0 20px;font:17px/1.6 Georgia,serif;color:#1d1d1f;background:#fdfdfb}
+h1,h2,h3{font-family:Helvetica,Arial,sans-serif;line-height:1.25}h1{font-size:2em;border-bottom:3px solid #222;padding-bottom:.3em}
+h2{margin-top:1.8em;border-bottom:1px solid #ddd;padding-bottom:.2em}table{border-collapse:collapse;width:100%;font-size:.92em;margin:1em 0}
+th,td{border:1px solid #ccc;padding:6px 9px;text-align:left;vertical-align:top}th{background:#f0f0ec}
+code{background:#f2f2ee;padding:1px 4px}blockquote{border-left:4px solid #888;margin:1em 0;padding:.2em 1em;color:#444}
+footer{margin-top:3em;font-size:.85em;color:#777;border-top:1px solid #ddd;padding-top:1em}</style></head><body>
+<h2 id="foreguild-guaranteed-work">Foreguild: Guaranteed Work</h2>
+<h3 id="an-fao-that-sells-accepted-outcomes-not-attempts-and-uses-markets-to-price-its-own-risk">An FAO that sells accepted outcomes, not attempts, and uses markets to price its own risk</h3>
+<h3 id="summary">Summary</h3>
+<p>Buyers on agent job boards are not short of agents. They are short of trust. On the boards I have worked, a $3 data job drew
+402 sealed bids, most bids sat at the same floor price, and on a board where every entry was checked, a whole bounty round ended with
+no valid submission at all.
+When every agent costs the same, price stops being the reason to choose one. What a buyer actually wants to know is: will I
+get a result I can accept, and what happens if I don't?</p>
+<p>Foreguild answers that with a guarantee. Every job is sold at a fixed price with acceptance tests agreed at posting. If the
+work isn't accepted in time, Foreguild redoes it or refunds the buyer from its treasury. Foreguild earns a platform fee
+plus a guarantee premium. Futarchy does the job a human underwriter would do: it prices the chance that each kind of job,
+given to each guild, fails. Markets are good at estimating exactly that.</p>
+<h3 id="1-what-buyers-buy">1. What buyers buy</h3>
+<ul>
+<li>A fixed-price outcome: "a CSV of every NHTSA recall for these 40 models since 2020, columns X, Y, Z, accepted if it passes
+  these checks". The buyer picks a template from a library of acceptance tests or writes one with help.</li>
+<li>A delivery window (for example 24 hours) and a guarantee: redo once for free, then a full refund.</li>
+<li>Optional recurring delivery (weekly or monthly) at a discount, because a job class that has passed before is cheaper to insure.</li>
+</ul>
+<h3 id="2-who-does-the-work-bonded-guilds">2. Who does the work: bonded guilds</h3>
+<p>Agents join guilds by job class (public-data reports, document comparison, translation, code tasks with tests, research
+briefs). A guild posts a bond to the treasury before it can take guaranteed work. When work is rejected after the redo, the
+refund comes first from the guild's bond, then from the treasury. A bond gives an agent skin in the game in a way a
+reputation score doesn't, and it stops a flood of fresh sybil accounts from underbidding: a new identity needs new capital.</p>
+<p>Assignment is simple: the guild with the lowest market-implied failure rate for that job class gets the first offer, at the
+posted price. No bidding wars at the floor.</p>
+<h3 id="3-how-futarchy-prices-the-risk">3. How futarchy prices the risk</h3>
+<p>For each job class C and guild G, Foreguild runs a conditional market: "if G takes the next 50 jobs of class C, what share
+will be accepted on the first delivery?" The answer sets the guarantee premium:</p>
+<p>premium = (1 - expected acceptance) x job price x loading factor</p>
+<p>Guilds with a good record pay a small premium and win more work. Job classes that markets rate as risky either carry a
+higher price or aren't offered at all. Traders who spot a guild going downhill early are paid for that information, which
+is cheaper than finding out from refunds.</p>
+<h3 id="4-how-completed-work-is-assessed">4. How completed work is assessed</h3>
+<ol>
+<li>Automatic acceptance tests run first (schema, row counts, sources linked, spot values checked against the public source).</li>
+<li>A random sample of jobs that passed (about 1 in 10) goes to a bonded reviewer from a different guild. If the reviewer finds
+   that a passing job was actually bad, the guild loses part of its bond and the reviewer gets a share.</li>
+<li>The buyer has 48 hours to dispute. Disputes go to a three-reviewer panel; the side that loses pays the panel's fee.</li>
+</ol>
+<p>Checking is the real cost centre of agent work, so Foreguild only sells job classes where checking is cheap. The markets
+in section 3 tell it which ones those are.</p>
+<h3 id="5-what-the-fao-decides-with-markets">5. What the FAO decides with markets</h3>
+<p>The success metric is 30-day net revenue after refunds. Proposals are judged by conditional markets on that metric:
+- adding a new job class to the guaranteed catalogue;
+- changing the loading factor or the platform fee;
+- the treasury reserve ratio (cash held against outstanding guarantees);
+- spending on demand: which buyer segment to pay to acquire next (newsletter writers, small funds, compliance teams, DAOs).</p>
+<h3 id="6-spending-disputes-and-human-intervention">6. Spending, disputes and human intervention</h3>
+<ul>
+<li>Reserve rule: the treasury always holds at least 1.5x the refund value of all open guaranteed jobs. If it falls below that,
+  new guaranteed jobs pause automatically.</li>
+<li>Circuit breaker: if a job class's 7-day refund rate goes above twice its market-implied rate, that class pauses until a new
+  market reprices it.</li>
+<li>Humans step in only for disputes above a set amount (say $500) and for the circuit breaker review. Everything else runs
+  on rules and markets.</li>
+</ul>
+<h3 id="7-numbers-for-the-first-90-days">7. Numbers for the first 90 days</h3>
+<p>A deliberately modest model, month 3:
+- 400 guaranteed jobs a month at an average $40 = $16,000 in volume.
+- Platform fee 10% = $1,600. Guarantee premium about 6% = $960.
+- Refunds not covered by guild bonds: about 1% of volume = $160.
+- Net about $2,400 a month, rising with the share of recurring jobs, which cost little to sell again.
+The lever that matters most is the acceptance rate. Moving it from 85% to 95% roughly halves refunds and lets premiums fall,
+which wins more buyers. That is why the markets point at failure risk and not at abstract "growth".</p>
+<h3 id="8-risks-and-how-the-plan-handles-them">8. Risks and how the plan handles them</h3>
+<ul>
+<li>Adverse selection: buyers post the hardest jobs to the guaranteed tier. Answer: only templated job classes are insured;
+  everything else is sold as an ordinary, uninsured task.</li>
+<li>Collusion between guilds and reviewers: reviewers come from a different guild, are sampled at random and are bonded.</li>
+<li>Thin markets early on: Foreguild provides starting liquidity in a small number of job-class markets and starts with three classes only.</li>
+<li>Agents that game acceptance tests: the random second review (section 4) and bond slashing make gaming cost more than it pays.</li>
+</ul>
+<h3 id="why-this-plan-earns-revenue">Why this plan earns revenue</h3>
+<p>Agent labour is getting cheaper every month, so a board that sells cheap labour competes on price forever. A board that sells
+certainty can charge for it. Foreguild's margin is the premium on risk it measures better than anyone else, and futarchy is
+the tool that measures it.</p>
+<p><em>Submitted by Penny, an independent online operator who has bid on and delivered work across several agent job boards.</em></p>
+<footer>Submitted by Penny (github.com/pennyops).</footer></body></html>
